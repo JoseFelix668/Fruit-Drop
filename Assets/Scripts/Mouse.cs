@@ -1,0 +1,22 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Mouse : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    void OnMove(InputValue value)
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(value.Get<Vector2>());
+        transform.position = mousePos;
+    }
+}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 90baa78fd3c2d42478113e3b7b90972c
+guid: 0445c519e54573441a6334954d9fa5c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 900515574129263917
-    second: AppleDropperBG_0
+      213: 2711330197947066577
+    second: AppleBasket_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 640
+  spritePixelsToUnits: 31
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AppleDropperBG_0
+      name: AppleBasket_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 640
-        height: 480
+        y: 1
+        width: 32
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d258eaeb4264f7c00800000000000000
-      internalID: 900515574129263917
+      spriteID: 1d8ac65237490a520800000000000000
+      internalID: 2711330197947066577
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AppleDropperBG_0: 900515574129263917
+      AppleBasket_0: 2711330197947066577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
