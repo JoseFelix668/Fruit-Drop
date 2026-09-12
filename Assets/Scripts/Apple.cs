@@ -29,4 +29,9 @@ public class Apple : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void AddSpeed()
+    {
+        speed += 2;
+    }
 }
