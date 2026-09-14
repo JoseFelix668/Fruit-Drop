@@ -32,7 +32,6 @@ public class Dropper : MonoBehaviour
     private Label scoreText;
     private Label totalScore;
     private Button restartButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         scoreText = uIDocument.rootVisualElement.Q<Label>("ScoreLabel");
@@ -42,13 +41,13 @@ public class Dropper : MonoBehaviour
         totalScore.style.display = DisplayStyle.None;
 
         restartButton.clicked += ReloadScene;
+        //randomizes how often a teleport will happen
         teleportCallMax = Random.Range(teleportCallMin, teleportCallMax + 1);
         initialTeleportMax = teleportCallMax;
     }
-
-    // Update is called once per frame
     void Update()
     {   
+        //Causes the apple branch to move around and spawn apples as long as atleast one basket remains
         if(lives > 0)
         {
             if (right) {
@@ -65,11 +64,12 @@ public class Dropper : MonoBehaviour
             {
                  right = true;   
             }
-
-            if(score >= 80 && teleportTimer == teleportCallMax && teleportCallMax == initialTeleportMax)
+            //Teleports the apple branch to a random x location once the teleport timer
+            //goes down and the player reaches the proper score
+            if(score >= 70 && teleportTimer == teleportCallMax && teleportCallMax == initialTeleportMax)
             {
                transform.position = new Vector2(Random.Range(-8, 9), transform.position.y);
-               if(score >= 120)
+               if(score >= 100)
                 {
                     teleportCallMax -= 60;
                 }
@@ -78,6 +78,7 @@ public class Dropper : MonoBehaviour
                 transform.position = new Vector2(Random.Range(-8, 9), transform.position.y);
             }
             
+            //Raises and checks the timer so that it can happen multiple times
             teleportTimer++;
             if(teleportTimer > teleportCallMax)
             {
@@ -87,6 +88,8 @@ public class Dropper : MonoBehaviour
         }
 
         scoreText.text = "Score: " + score; 
+        //Changes how often an apple can spawn and how fast they drop once the
+        //player reaches the appropriate score
         if(spawnChance == 150 && score >= 20)
         {
             spawnChance = 125;
@@ -100,7 +103,7 @@ public class Dropper : MonoBehaviour
     }
 
     void SpawnApple()
-    {
+    {//Spawns an apple
         int r = Random.Range(1, spawnChance + 1);
         if(r == spawnChance)
             {
@@ -109,11 +112,14 @@ public class Dropper : MonoBehaviour
             }  
     }
     
+    //Called in the Apple script, raises the players score whenever an apple is caught
     public void UpdateScore()
     {
         score++;
     }
 
+    //Called in the Apple script, destroys baskets once an apple is missed,
+    //also brings up the ends screen once all baskets are destroyed
     public void DestroyBasket()
     {
         if(lives == 3)

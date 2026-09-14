@@ -3,19 +3,17 @@ using UnityEngine.InputSystem;
 
 public class Mouse : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
     void OnMove(InputValue value)
-    {
+    {//Checks where the mouse is and moves a square to it
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(value.Get<Vector2>());
         transform.position = mousePos;
     }

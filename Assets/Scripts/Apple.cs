@@ -4,20 +4,18 @@ public class Apple : MonoBehaviour
 {   
     public float speed = 8f;
     public Dropper dropperScript;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
-    {
+    {//Makes the apple move downward
         transform.position = new Vector2(transform.position.x, transform.position.y - (speed * Time.deltaTime));
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {
+    {//checks where an apple collides to decide whether the player loses a basket or gets a point
         if(collision.gameObject.tag.Equals("Rot"))
         {
             dropperScript.DestroyBasket();
@@ -29,7 +27,7 @@ public class Apple : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    //Called in the Dropper scirpt, makes the apples drop faster
     public void AddSpeed()
     {
         speed += 2;
